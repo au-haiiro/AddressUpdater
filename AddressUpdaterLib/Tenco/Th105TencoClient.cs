@@ -27,7 +27,12 @@ namespace HisoutenSupportTools.AddressUpdater.Lib.Tenco
         {
             if (string.IsNullOrEmpty(account))
                 throw new System.ArgumentNullException("account");
-            _mypage = new Uri(string.Format("http://tenco.xrea.jp/game/1/account/{0}/output=xml", account));
+            //del start 緋想天用の機能を心綺楼用へ変更
+            //_mypage = new Uri(string.Format("http://tenco.xrea.jp/game/1/account/{0}/output=xml", account));
+            //del end   緋想天用の機能を心綺楼用へ変更
+            //add start 緋想天用の機能を心綺楼用へ変更
+            _mypage = new Uri(string.Format("http://tenco.info/game/4/account/{0}/output=xml", account));
+            //add end   緋想天用の機能を心綺楼用へ変更
         }
 
         /// <summary>
@@ -57,7 +62,12 @@ namespace HisoutenSupportTools.AddressUpdater.Lib.Tenco
                 ratingDoc.LoadXml(mypageXml);
 
                 var ratings = new Collection<Th105Rating>();
-                var characters = ratingDoc.SelectNodes("/gameAccount/account/game[id=1]/type1");
+                //del start 緋想天用の機能を心綺楼用へ変更
+                //var characters = ratingDoc.SelectNodes("/gameAccount/account/game[id=1]/type1");
+                //del end   緋想天用の機能を心綺楼用へ変更
+                //add start 緋想天用の機能を心綺楼用へ変更
+                var characters = ratingDoc.SelectNodes("/gameAccount/account/game[id=4]/type1");
+                //add end   緋想天用の機能を心綺楼用へ変更
                 foreach (XmlNode character in characters)
                 {
                     var characterIdNode = character.SelectSingleNode("id");

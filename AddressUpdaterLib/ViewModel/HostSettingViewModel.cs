@@ -269,6 +269,23 @@ namespace HisoutenSupportTools.AddressUpdater.Lib.ViewModel
             }
         }
 
+        //add start 緋想天用の機能を心綺楼用へ変更
+        /// <summary>
+        /// キャラ一覧の取得心綺楼
+        /// </summary>
+        public ReadOnlyCollection<KeyValuePair<string, Th123Characters>> Characters105
+        {
+            //Note: 戻り値は Th123Characters 型
+            get
+            {
+                var characters = new Collection<KeyValuePair<string, Th123Characters>>();
+                foreach (Th105Characters value in Enum.GetValues(typeof(Th105Characters)))
+                    characters.Add(new KeyValuePair<string, Th123Characters>(EnumTextAttribute.GetText(value), (Th123Characters)value));
+                return new ReadOnlyCollection<KeyValuePair<string, Th123Characters>>(characters);
+            }
+        }
+        //add end   緋想天用の機能を心綺楼用へ変更
+
         /// <summary>
         /// 選択されたキャラ
         /// </summary>
@@ -359,7 +376,12 @@ namespace HisoutenSupportTools.AddressUpdater.Lib.ViewModel
                 OnPropertyChanged("SelectedGame");
             }
         }
-        private Games _selectedGame = Games.Th123;
+        //del start 緋想天用の機能を心綺楼用へ変更
+        //private Games _selectedGame = Games.Th123;
+        //del end   緋想天用の機能を心綺楼用へ変更
+        //add start 緋想天用の機能を心綺楼用へ変更
+        private Games _selectedGame = Games.Th105;
+        //add end   緋想天用の機能を心綺楼用へ変更
 
         /// <summary>
         /// 選択されているタブのIndex(for Tenco)
@@ -374,10 +396,20 @@ namespace HisoutenSupportTools.AddressUpdater.Lib.ViewModel
                     return;
 
                 _selectedTabIndex = value;
+
+                //del start 緋想天用の機能を心綺楼用へ変更
+                //if (value == 0)
+                //    SelectedGame = Games.Th123;
+                //else if (value == 1)
+                //    SelectedGame = Games.Th105;
+                //del end   緋想天用の機能を心綺楼用へ変更
+                //add start 緋想天用の機能を心綺楼用へ変更
                 if (value == 0)
-                    SelectedGame = Games.Th123;
-                else if (value == 1)
                     SelectedGame = Games.Th105;
+                else if (value == 1)
+                    SelectedGame = Games.Th123;
+                //add end   緋想天用の機能を心綺楼用へ変更
+
                 OnPropertyChanged("SelectedTabIndex");
             }
         }
@@ -875,7 +907,12 @@ namespace HisoutenSupportTools.AddressUpdater.Lib.ViewModel
                 return;
 
             Process.Start(string.Format(
-                "http://tenco.xrea.jp/game/1/account/{0}/",
+                //del start 緋想天用の機能を心綺楼用へ変更
+                //"http://tenco.xrea.jp/game/1/account/{0}/",
+                //del end   緋想天用の機能を心綺楼用へ変更
+                //add start 緋想天用の機能を心綺楼用へ変更
+                "http://tenco.info/game/4/account/{0}/",
+                //add end   緋想天用の機能を心綺楼用へ変更
                 TencoAccountName));
         }
 
@@ -888,7 +925,12 @@ namespace HisoutenSupportTools.AddressUpdater.Lib.ViewModel
                 return;
 
             Process.Start(string.Format(
-                "http://tenco.xrea.jp/game/2/account/{0}/",
+                //del start 緋想天用の機能を心綺楼用へ変更
+                //"http://tenco.xrea.jp/game/2/account/{0}/",
+                //del end   緋想天用の機能を心綺楼用へ変更
+                //add start 緋想天用の機能を心綺楼用へ変更
+                "http://tenco.info/game/2/account/{0}/",
+                //add end   緋想天用の機能を心綺楼用へ変更
                 TencoAccountName));
         }
         #endregion
@@ -899,7 +941,12 @@ namespace HisoutenSupportTools.AddressUpdater.Lib.ViewModel
         /// </summary>
         public void SendRecords()
         {
-            try { Process.Start(new ProcessStartInfo("hks_report") { WorkingDirectory = TencoFolder }); }
+            //del start 緋想天用の機能を心綺楼用へ変更
+            //try { Process.Start(new ProcessStartInfo("hks_report") { WorkingDirectory = TencoFolder }); }
+            //del end   緋想天用の機能を心綺楼用へ変更
+            //add start 緋想天用の機能を心綺楼用へ変更
+            try { Process.Start(new ProcessStartInfo("skr_report") { WorkingDirectory = TencoFolder }); }
+            //add end   緋想天用の機能を心綺楼用へ変更
             catch (Exception ex) { Debug.WriteLine(ex.Message); }
         }
 

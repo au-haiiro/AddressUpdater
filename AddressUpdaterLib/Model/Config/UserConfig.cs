@@ -113,6 +113,13 @@ namespace HisoutenSupportTools.AddressUpdater.Lib.Model.Config
         /// <summary>Tencoレーティングを使用するかどうか</summary>
         [XmlElement("Tencoレーティングを使用するかどうか")]
         public bool UseTenco = false;
+
+        //add start 緋想天用の機能を心綺楼用へ変更
+        /// <summary>Tencoゲーム選択</summary>
+        [XmlElement("Tencoゲーム選択")]
+        public int TencoGame = 0;
+        //add end   緋想天用の機能を心綺楼用へ変更
+
         /// <summary>Tenco使用キャラ</summary>
         [XmlElement("Tenco使用キャラ")]
         public int TencoCharacter = -1;
@@ -267,6 +274,11 @@ namespace HisoutenSupportTools.AddressUpdater.Lib.Model.Config
 
                 UseTenco = config.UseTenco;
                 HideTencoCharacter = config.HideTencoCharacter;
+
+                //add start 緋想天用の機能を心綺楼用へ変更
+                TencoGame = config.TencoGame;
+                //add end   緋想天用の機能を心綺楼用へ変更
+
                 TencoCharacter = config.TencoCharacter;
                 TencoFolder = config.TencoFolder;
                 TencoAccount = config.TencoAccount;

@@ -70,6 +70,12 @@ namespace HisoutenSupportTools.AddressUpdater.Lib.View
 
                 ViewModel.Ip = UserConfig.ServerIp;
                 ViewModel.Port = UserConfig.ServerPort;
+
+                //add start 緋想天用の機能を心綺楼用へ変更
+                try { ViewModel.SelectedTabIndex = UserConfig.TencoGame; }
+                catch (Exception) { }
+                //add end   緋想天用の機能を心綺楼用へ変更
+
                 try { ViewModel.SelectedCharacter = (Th123Characters)UserConfig.TencoCharacter; }
                 catch (Exception) { }
                 ViewModel.IsHideCharacter = UserConfig.HideTencoCharacter;
@@ -127,7 +133,12 @@ namespace HisoutenSupportTools.AddressUpdater.Lib.View
             openPortButton.DataBindings.Add("Enabled", ViewModel, "IsPortClosed", false, DataSourceUpdateMode.OnPropertyChanged);
             rankSelect.DataSource = ViewModel.Ranks;
             rankSelect.DataBindings.Add("Text", ViewModel, "Rank", false, DataSourceUpdateMode.OnPropertyChanged);
-            characterSelect.DataSource = ViewModel.Characters;
+            //del start 緋想天用の機能を心綺楼用へ変更
+            //characterSelect.DataSource = ViewModel.Characters;
+            //del end   緋想天用の機能を心綺楼用へ変更
+            //add start 緋想天用の機能を心綺楼用へ変更
+            characterSelect.DataSource = ViewModel.Characters105;  // 最初は心綺楼のキャラリストを表示
+            //add end   緋想天用の機能を心綺楼用へ変更
             characterSelect.DisplayMember = "Key";
             characterSelect.ValueMember = "Value";
             characterSelect.DataBindings.Add("SelectedValue", ViewModel, "SelectedCharacter", false, DataSourceUpdateMode.OnPropertyChanged);
@@ -160,6 +171,19 @@ namespace HisoutenSupportTools.AddressUpdater.Lib.View
         {
             switch (e.PropertyName)
             {
+                //add start 緋想天用の機能を心綺楼用へ変更
+                case "SelectedGame":
+                    if( Games.Th105 == ViewModel.SelectedGame )
+                    {
+                        characterSelect.DataSource = ViewModel.Characters105;
+                    }
+                    else if (Games.Th123 == ViewModel.SelectedGame)
+                    {
+                        characterSelect.DataSource = ViewModel.Characters;
+                    }
+                    break;
+                //add end   緋想天用の機能を心綺楼用へ変更
+
                 case "RegisterMode":
                     switch (ViewModel.RegisterMode)
                     {

@@ -32,7 +32,12 @@ namespace HisoutenSupportTools.AddressUpdater.Lib.Tenco
                 throw new System.ArgumentNullException("account");
 
             AccountName = accountName;
-            _mypage = new Uri(string.Format("http://tenco.xrea.jp/game/2/account/{0}/output=xml", accountName));
+            //del start 緋想天用の機能を心綺楼用へ変更
+            //_mypage = new Uri(string.Format("http://tenco.xrea.jp/game/2/account/{0}/output=xml", accountName));
+            //del end   緋想天用の機能を心綺楼用へ変更
+            //add start 緋想天用の機能を心綺楼用へ変更
+            _mypage = new Uri(string.Format("http://tenco.info/game/2/account/{0}/output=xml", accountName));
+            //add end   緋想天用の機能を心綺楼用へ変更
             _ratings = new Collection<Th123Rating>();
         }
 

@@ -125,8 +125,14 @@
             // 
             // tencoTabControl
             // 
+            //del start 緋想天用の機能を心綺楼用へ変更
+            //this.tencoTabControl.Controls.Add(this.th123TabPage);
+            //this.tencoTabControl.Controls.Add(this.th105TabPage);
+            //del end   緋想天用の機能を心綺楼用へ変更
+            //add start 緋想天用の機能を心綺楼用へ変更
+            this.tencoTabControl.Controls.Add(this.th105TabPage);  // 心綺楼のタブを左へ表示
             this.tencoTabControl.Controls.Add(this.th123TabPage);
-            this.tencoTabControl.Controls.Add(this.th105TabPage);
+            //add end   緋想天用の機能を心綺楼用へ変更
             this.tencoTabControl.Location = new System.Drawing.Point(333, 25);
             this.tencoTabControl.Name = "tencoTabControl";
             this.tencoTabControl.SelectedIndex = 0;
@@ -266,7 +272,12 @@
             this.th105TabPage.Name = "th105TabPage";
             this.th105TabPage.Size = new System.Drawing.Size(391, 328);
             this.th105TabPage.TabIndex = 1;
-            this.th105TabPage.Text = "緋想天";
+            //del start 緋想天用の機能を心綺楼用へ変更
+            //this.th105TabPage.Text = "緋想天";
+            //del end   緋想天用の機能を心綺楼用へ変更
+            //add start 緋想天用の機能を心綺楼用へ変更
+            this.th105TabPage.Text = "心綺楼";
+            //add end   緋想天用の機能を心綺楼用へ変更
             this.th105TabPage.UseVisualStyleBackColor = true;
             // 
             // ratingList

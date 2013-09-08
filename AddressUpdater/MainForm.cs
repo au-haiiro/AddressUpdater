@@ -135,6 +135,11 @@ namespace HisoutenSupportTools.AddressUpdater
             Program.USER_CONFIG.ExtraWindowInformations = versionTab.ExtraWindowInformations;
 
             Program.USER_CONFIG.UseTenco = hostSettingTab.ViewModel.RegisterMode == RegisterMode.Tenco;
+
+            //add start 緋想天用の機能を心綺楼用へ変更
+            Program.USER_CONFIG.TencoGame = hostSettingTab.ViewModel.SelectedTabIndex;
+            //add end   緋想天用の機能を心綺楼用へ変更
+
             Program.USER_CONFIG.TencoCharacter = (int)hostSettingTab.ViewModel.SelectedCharacter;
             Program.USER_CONFIG.HideTencoCharacter = hostSettingTab.ViewModel.IsHideCharacter;
             Program.USER_CONFIG.Rank = hostSettingTab.ViewModel.Rank;
